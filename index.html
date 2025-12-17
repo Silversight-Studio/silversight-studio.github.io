@@ -1,393 +1,701 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silversight - Innovate. Design. Elevate.</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Silversight LLC | Technology Company</title>
+    <meta name="description" content="Silversight LLC is a technology company building innovative consumer applications. Home of RivalMe.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-bg: #050508;
+            --color-bg-elevated: #0f0f14;
+            --color-bg-subtle: #1a1a24;
+            --color-border: rgba(99, 102, 241, 0.2);
+            --color-border-subtle: rgba(255, 255, 255, 0.06);
+            --color-text: #f0f0f5;
+            --color-text-muted: #8b8b9e;
+            --color-accent: #6366f1;
+            --color-accent-secondary: #3b82f6;
+            --color-accent-tertiary: #8b5cf6;
+            --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
-            color: #e5e7eb;
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .hero-bg {
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(5, 5, 8, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--color-text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #a78bfa;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 64px;
             position: relative;
-            background-color: #111827;
             overflow: hidden;
+            background: var(--color-bg);
         }
-        #hero-canvas {
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140%;
+            height: 80%;
+            background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.3) 0%, rgba(59, 130, 246, 0.15) 40%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: -20%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #a5a5b8;
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        /* Sections */
+        section {
+            padding: 120px 0;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: var(--color-text);
+        }
+
+        /* About */
+        .about {
+            border-top: 1px solid var(--color-border);
+            position: relative;
+            background: var(--color-bg);
+        }
+
+        .about::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 50%;
             height: 100%;
-            z-index: 1;
+            background: radial-gradient(ellipse at left center, rgba(99, 102, 241, 0.12) 0%, transparent 60%);
+            pointer-events: none;
         }
-        .hero-content {
-            position: relative;
-            z-index: 2;
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 64px;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .section-title {
-            font-weight: 900;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            background: -webkit-linear-gradient(#eee, #888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+
         @media (min-width: 768px) {
-            .section-title {
-                font-size: 4rem;
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
+
+        .about-text {
+            color: #9d9db0;
+            font-size: 1.0625rem;
+            line-height: 1.8;
         }
-        .nav-link::after {
+
+        .about-text p + p {
+            margin-top: 20px;
+        }
+
+        .values-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .value-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .value-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .value-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: #a78bfa;
+        }
+
+        .value-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .value-content p {
+            font-size: 0.9375rem;
+            color: #9d9db0;
+        }
+
+        /* Products */
+        .products {
+            background: linear-gradient(180deg, var(--color-bg-elevated) 0%, var(--color-bg) 100%);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+            position: relative;
+        }
+
+        .products::before {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            background-color: #38bdf8;
-            transition: width 0.3s ease;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 60%;
+            background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+            pointer-events: none;
         }
-        .nav-link:hover::after {
-            width: 100%;
+
+        .product-card {
+            position: relative;
+            background: linear-gradient(135deg, rgba(15, 15, 20, 0.9), rgba(26, 26, 36, 0.6));
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 
+                0 0 80px -20px rgba(99, 102, 241, 0.4),
+                0 0 40px -20px rgba(139, 92, 246, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
         }
-        .nav-link:hover {
-            color: #38bdf8;
+
+        .product-card:hover {
+            box-shadow: 
+                0 0 100px -20px rgba(99, 102, 241, 0.5),
+                0 0 60px -20px rgba(139, 92, 246, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
         }
-        /* Style for Privacy Policy content */
-        .privacy-policy-content h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #38bdf8;
+
+        .product-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
         }
-        .privacy-policy-content h3 {
+
+        .product-logo {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: white;
+            box-shadow: 0 8px 24px -8px rgba(139, 92, 246, 0.5);
+        }
+
+        .product-name {
             font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: #e5e7eb;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
-        .privacy-policy-content p {
-            margin-bottom: 1rem;
-            line-height: 1.6;
+
+        .product-tagline {
+            font-size: 0.875rem;
+            color: #a78bfa;
         }
-        .privacy-policy-content ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
+
+        .product-description {
+            color: #a5a5b8;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
         }
-        .privacy-policy-content ul li {
-            margin-bottom: 0.5rem;
+
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
-        .privacy-policy-content a {
-            color: #38bdf8;
-            text-decoration: underline;
+
+        .feature-tag {
+            padding: 6px 14px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            font-size: 0.8125rem;
+            color: #c4b5fd;
+        }
+
+        /* Contact */
+        .contact {
+            border-top: 1px solid var(--color-border);
+            position: relative;
+            background: var(--color-bg);
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50%;
+            height: 80%;
+            background: radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: #a78bfa;
+        }
+
+        .contact-label {
+            font-size: 0.8125rem;
+            color: #8b8ba0;
+            margin-bottom: 4px;
+        }
+
+        .contact-value {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-value a {
+            color: var(--color-text);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-value a:hover {
+            color: #a78bfa;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-bg);
+            border-top: 1px solid var(--color-border);
+            padding: 48px 0;
+        }
+
+        .footer-links a:hover {
+            color: #a78bfa;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-text);
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--color-text);
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--color-bg);
+                border-bottom: 1px solid var(--color-border);
+                padding: 24px;
+                gap: 16px;
+            }
         }
     </style>
 </head>
-<body class="antialiased">
-
-    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-6 py-4">
-            <nav class="flex items-center justify-between">
-                <a href="#" class="text-2xl font-bold tracking-wider text-white">SILVERSIGHT</a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="nav-link text-gray-300">About</a>
-                    <a href="#services" class="nav-link text-gray-300">Services</a>
-                    <a href="#work" class="nav-link text-gray-300">Work</a>
-                    <a href="#lab" class="nav-link text-gray-300">The Lab</a>
-                    <a href="#contact" class="nav-link text-gray-300">Contact Us</a>
-                    <a href="/pages/communityGuidelines/community_guidelines.html" class="nav-link text-gray-300">Community Guidelines</a>
-                    <a href="/pages/privacyPolicy/index.html" class="nav-link text-gray-300">Privacy Policy</a>
-                    <a href="/pages/termsAndConditions/index.html" class="nav-link text-gray-300">Terms & Conditions</a>
-                </div>
-                <button id="mobile-menu-button" class="md:hidden text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </nav>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-800/90 backdrop-blur-sm">
-            <a href="#about" class="block text-white text-center py-4 hover:bg-gray-700">About</a>
-            <a href="#services" class="block text-white text-center py-4 hover:bg-gray-700">Services</a>
-            <a href="#work" class="block text-white text-center py-4 hover:bg-gray-700">Work</a>
-            <a href="#lab" class="block text-white text-center py-4 hover:bg-gray-700">The Lab</a>
-            <a href="#contact" class="block text-white text-center py-4 hover:bg-gray-700">Contact</a>
-            <a href="/pages/communityGuidelines/community_guidelines.html" class="block text-white text-center py-4 hover:bg-gray-700">Community Guidelines</a>
-            <a href="/pages/privacyPolicy/index.html" class="block text-white text-center py-4 hover:bg-gray-700">Privacy Policy</a>
-            <a href="/pages/termsAndConditions/index.html" class="block text-white text-center py-4 hover:bg-gray-700">Terms & Conditions</a>
-        </div>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">Silversight LLC</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </nav>
     </header>
 
     <main>
-        <section class="hero-bg min-h-screen flex items-center justify-center text-center px-4">
-            <canvas id="hero-canvas"></canvas>
-            <div class="hero-content space-y-6">
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-white">
-                    <span class="block">Innovate.</span>
-                    <span class="block">Design.</span>
-                    <span class="block text-sky-400">Elevate.</span>
-                </h1>
-                <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
-                    We craft elegant software, distinctive apparel, and insightful strategies for a digital-first world.
-                </p>
-                <div>
-                    <a href="#work" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform duration-300 inline-block transform hover:scale-105">
-                        Explore Our Work
-                    </a>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Building the <span class="highlight">Future</span> of consumer technology</h1>
+                    <p>Silversight LLC is a technology company focused on creating innovative mobile applications and digital platforms that connect and engage users worldwide.</p>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="py-20 md:py-32 bg-black">
-            <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-grid">
                     <div>
-                        <h2 class="section-title mb-6">Who We Are</h2>
-                        <p class="text-gray-400 mb-4 text-lg leading-relaxed">
-                            Silversight is a multi-disciplinary creative and technology studio. We thrive at the intersection of beautiful design and powerful engineering. Our passion is to build exceptional digital experiences and products that not only look good but perform flawlessly.
-                        </p>
-                        <p class="text-gray-400 text-lg leading-relaxed">
-                            From complex software solutions to curated e-commerce platforms, our team brings a wealth of experience and a collaborative spirit to every project, ensuring we deliver not just what's asked, but what's needed for success.
-                        </p>
+                        <p class="section-label">About Us</p>
+                        <h2 class="section-title">A company built on innovation and integrity</h2>
+                        <div class="about-text">
+                            <p>Silversight LLC is a United States technology company dedicated to building consumer applications that people love to use. We combine thoughtful design with robust engineering to create digital experiences that stand out.</p>
+                            <p>Founded with the vision of bringing fresh ideas to the mobile space, we're committed to operating with transparency, maintaining the highest standards of data privacy, and delivering products that add real value to our users' lives.</p>
+                        </div>
                     </div>
                     <div>
-                        <img src="https://placehold.co/600x400/111827/38bdf8?text=Silversight+Team" alt="Silversight Team" class="rounded-xl shadow-2xl w-full h-auto object-cover">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="py-20 md:py-32 bg-gray-900/50">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="section-title mb-16">Our Expertise</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="glass-card p-8 rounded-xl transition-transform duration-300 hover:-translate-y-2">
-                        <div class="mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Software Design</h3>
-                        <p class="text-gray-400">Custom software solutions, from enterprise applications to sleek mobile apps, engineered for performance and scalability.</p>
-                    </div>
-                    <div class="glass-card p-8 rounded-xl transition-transform duration-300 hover:-translate-y-2">
-                        <div class="mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Apparel & eCommerce</h3>
-                        <p class="text-gray-400">Building unique apparel brands with seamless e-commerce experiences that captivate customers and drive sales.</p>
-                    </div>
-                    <div class="glass-card p-8 rounded-xl transition-transform duration-300 hover:-translate-y-2">
-                        <div class="mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Strategic Consulting</h3>
-                        <p class="text-gray-400">Providing expert guidance on technology strategy, product roadmapping, and digital transformation initiatives.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="work" class="py-20 md:py-32 bg-black">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title text-center mb-16">Featured Work</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="group relative overflow-hidden rounded-xl">
-                        <img src="https://placehold.co/600x450/1f2937/38bdf8?text=Project+Alpha" alt="Project Alpha" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <h3 class="text-xl font-bold text-white">Project Alpha</h3>
-                            <p class="text-gray-300 text-sm">Enterprise SaaS Platform</p>
-                        </div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-xl">
-                        <img src="https://placehold.co/600x450/111827/38bdf8?text=E-commerce+Brand" alt="E-commerce Brand" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <h3 class="text-xl font-bold text-white">Urban Threads</h3>
-                            <p class="text-gray-300 text-sm">Apparel & eCommerce</p>
-                        </div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-xl">
-                        <img src="https://placehold.co/600x450/374151/38bdf8?text=Mobile+App" alt="Mobile App" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <h3 class="text-xl font-bold text-white">Connect Sphere</h3>
-                            <p class="text-gray-300 text-sm">Mobile Application</p>
+                        <div class="values-list">
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                                    </svg>
+                                </div>
+                                <div class="value-content">
+                                    <h3>Privacy First</h3>
+                                    <p>We collect only what's necessary and never sell user data to third parties.</p>
+                                </div>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/>
+                                    </svg>
+                                </div>
+                                <div class="value-content">
+                                    <h3>Global Reach</h3>
+                                    <p>Building products that connect users across borders and time zones.</p>
+                                </div>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                                    </svg>
+                                </div>
+                                <div class="value-content">
+                                    <h3>Continuous Innovation</h3>
+                                    <p>Always exploring new ideas and technologies to improve our products.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="lab" class="py-20 md:py-32 bg-gray-900/50">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title text-center mb-16">From The Lab</h2>
-                <div class="max-w-4xl mx-auto space-y-8">
-                    <div class="glass-card p-8 rounded-xl flex flex-col md:flex-row gap-8 items-center">
-                        <div class="md:w-1/3">
-                            <img src="https://placehold.co/400x300/111827/ffffff?text=AI+Concept" alt="AI Concept" class="rounded-lg w-full h-auto object-cover">
-                        </div>
-                        <div class="md:w-2/3">
-                            <p class="text-sm text-sky-400 mb-1">R&D</p>
-                            <h3 class="text-2xl font-bold text-white mb-3">Exploring the Future of UI with Generative AI</h3>
-                            <p class="text-gray-400">A look into how large language models and diffusion models are set to revolutionize interface design and user experience.</p>
+        <section class="products" id="products">
+            <div class="container">
+                <p class="section-label">Our Products</p>
+                <h2 class="section-title">Current ventures</h2>
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-logo">R</div>
+                        <div>
+                            <h3 class="product-name">RivalMe</h3>
+                            <p class="product-tagline">Social competition platform</p>
                         </div>
                     </div>
-                     <div class="glass-card p-8 rounded-xl flex flex-col md:flex-row-reverse gap-8 items-center">
-                           <div class="md:w-1/3">
-                            <img src="https://placehold.co/400x300/111827/ffffff?text=Sustainable+Tech" alt="Sustainable Tech" class="rounded-lg w-full h-auto object-cover">
+                    <p class="product-description">RivalMe is a mobile application that brings a new dimension to social media by combining regional content with competitive engagement. Users create and share content to compete in regional contests, fostering community connection and friendly competition.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">iOS & Android</span>
+                        <span class="feature-tag">Social Platform</span>
+                        <span class="feature-tag">Regional</span>
+                        <span class="feature-tag">Contests & Awards</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div>
+                        <p class="section-label">Contact</p>
+                        <h2 class="section-title">Get in touch</h2>
+                        <p class="about-text">Have questions about our products, partnerships, or business inquiries? We're here to help.</p>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="contact-label">General Inquiries</p>
+                                <p class="contact-value"><a href="mailto:support@silversightllc.com">support@silversightllc.com</a></p>
+                            </div>
                         </div>
-                        <div class="md:w-2/3">
-                            <p class="text-sm text-sky-400 mb-1">Concept</p>
-                            <h3 class="text-2xl font-bold text-white mb-3">Sustainable Tech Apparel: The Next Frontier</h3>
-                            <p class="text-gray-400">Designing smart clothing with eco-friendly materials and a circular economy mindset. Can fashion be both intelligent and responsible?</p>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="contact-label">Location</p>
+                                <p class="contact-value">United States</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    
-    <footer class="bg-gray-900/50 py-12">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <p>&copy; 2024 Silversight. All Rights Reserved.</p>
-            <div class="mt-4 flex justify-center space-x-6">
-                <a href="#" class="hover:text-sky-400 transition-colors">GitHub</a>
-                <a href="#" class="hover:text-sky-400 transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-sky-400 transition-colors">Twitter</a>
-                <a href="/pages/communityGuidelines/community_guidelines.html" class="hover:text-sky-400 transition-colors">Community Guidelines</a>
-                <a href="/pages/privacyPolicy/index.html" class="hover:text-sky-400 transition-colors">Privacy Policy</a> 
-                <a href="/pages/termsAndConditions/index.html" class="hover:text-sky-400 transition-colors">Terms & Conditions</a> 
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copyright">&copy; 2025 Silversight LLC. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="pages/privacyPolicy/index.html">Privacy Policy</a></li>
+                    <li><a href="pages/termsAndConditions/index.html">Terms & Conditions</a></li>
+                    <li><a href="pages/communityGuidelines/community_guidelines.html">Community Guidelines</a></li>
+                </ul>
             </div>
         </div>
     </footer>
 
     <script>
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
         
-        // --- Close mobile menu on link click ---
-        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
-        for (let link of mobileMenuLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                navLinks.classList.remove('active');
             });
-        }
-        
-        // --- Navbar background on scroll ---
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
-            } else {
-                navbar.classList.remove('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
-            }
         });
-
-        // --- Hero Canvas Animation ---
-        const canvas = document.getElementById('hero-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1 - 0.5;
-                this.color = '#374151';
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.size > 0.2) this.size -= 0.01;
-
-                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-            }
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function initParticles() {
-            particles = [];
-            let numberOfParticles = (canvas.width * canvas.height) / 9000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-            }
-            connect();
-            requestAnimationFrame(animate);
-        }
-
-        function connect() {
-            let opacityValue = 1;
-            for (let a = 0; a < particles.length; a++) {
-                for (let b = a; b < particles.length; b++) {
-                    let distance = Math.sqrt(
-                        (particles[a].x - particles[b].x) * (particles[a].x - particles[b].x) +
-                        (particles[a].y - particles[b].y) * (particles[a].y - particles[b].y)
-                    );
-                    if (distance < 100) {
-                        opacityValue = 1 - (distance / 100);
-                        ctx.strokeStyle = `rgba(55, 65, 81, ${opacityValue})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[a].x, particles[a].y);
-                        ctx.lineTo(particles[b].x, particles[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-        
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            initParticles();
-        });
-
-        // Initialize and run animation
-        resizeCanvas();
-        initParticles();
-        animate();
-
     </script>
 </body>
 </html>
