@@ -1,180 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Community Guidelines | RivalMe</title>
-  <style>
-    :root {
-      --brand-primary: #009688; /* teal */
-      --brand-dark: #333333;   /* charcoal */
-      --text-color: #333;
-      --background-color: #fafafa;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Guidelines | RivalMe</title>
+    <meta name="description" content="Community Guidelines for RivalMe, a product of Silversight LLC.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #050508;
+            --color-bg-elevated: #0f0f14;
+            --color-border: rgba(99, 102, 241, 0.2);
+            --color-text: #f0f0f5;
+            --color-text-muted: #9d9db0;
+            --color-accent: #a78bfa;
+            --font-sans: 'DM Sans', system-ui, sans-serif;
+        }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: var(--text-color);
-      background: var(--background-color);
-      line-height: 1.6;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header {
-      background: var(--brand-primary);
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(5, 5, 8, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--color-border);
+        }
 
-    nav {
-      background: var(--brand-dark);
-    }
+        nav {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
-    }
+        .logo {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-text);
+            text-decoration: none;
+        }
 
-    nav li {
-      flex: 1 1 auto;
-    }
+        .back-link {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      display: block;
-      padding: 0.75rem;
-      text-align: center;
-      font-size: 0.9rem;
-    }
+        .back-link:hover {
+            color: var(--color-accent);
+        }
 
-    nav a:hover, nav a:focus {
-      background: rgba(255, 255, 255, 0.1);
-    }
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+        }
 
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
+        main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+            position: relative;
+        }
 
-    section {
-      margin-bottom: 2rem;
-    }
+        main::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at top right, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
 
-    h2 {
-      color: var(--brand-primary);
-      font-size: 1.5rem;
-      margin-top: 0;
-    }
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--color-border);
+        }
 
-    ul {
-      margin-left: 1.25rem;
-    }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--color-text), #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    footer {
-      background: var(--brand-dark);
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.8rem;
-    }
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-muted);
+        }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --text-color: #e5e5e5;
-        --background-color: #1e1e1e;
-      }
-      nav, footer {
-        background: #000;
-      }
-    }
-  </style>
+        .toc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 48px;
+            padding: 20px;
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            justify-content: center;
+        }
+
+        .toc a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 8px 16px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .toc a:hover {
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, #6366f1, #a78bfa);
+            border-radius: 2px;
+        }
+
+        p {
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+        }
+
+        ul, ol {
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        li::marker {
+            color: var(--color-accent);
+        }
+
+        strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .enforcement-list {
+            display: grid;
+            gap: 10px;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .enforcement-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            margin-bottom: 0;
+            color: var(--color-text-muted);
+        }
+
+        .enforcement-list li::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #6366f1, #a78bfa);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        footer {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .footer-info {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+
+        .footer-info p {
+            margin-bottom: 4px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Community Guidelines</h1>
-    <p>Your safety and experience are our priority on RivalMe.</p>
-  </header>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">Silversight LLC</a>
+            <a href="../../index.html" class="back-link">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+    </header>
 
-  <nav aria-label="Section navigation">
-    <ul>
-      <li><a href="#principles">Principles</a></li>
-      <li><a href="#prohibited">Prohibited Content</a></li>
-      <li><a href="#enforcement">Enforcement</a></li>
-      <li><a href="#reporting">Reporting & Appeals</a></li>
-      <li><a href="#updates">Updates</a></li>
-    </ul>
-  </nav>
+    <main>
+        <div class="page-header">
+            <h1>Community Guidelines</h1>
+            <p class="subtitle">Your safety and experience are our priority on RivalMe.</p>
+        </div>
 
-  <main>
-    <section id="principles">
-      <h2>Our Four Core Principles</h2>
-      <ul>
-        <li><strong>Respect:</strong> Treat everyone with dignity; no bullying or harassment.</li>
-        <li><strong>Safety:</strong> Protect users from harm, threats, or exploitation.</li>
-        <li><strong>Privacy:</strong> Share only content you have the right to share.</li>
-        <li><strong>Authenticity:</strong> No impersonation, manipulated media, or spam.</li>
-      </ul>
-    </section>
+        <div class="toc" aria-label="Table of contents">
+            <a href="#principles">Principles</a>
+            <a href="#prohibited">Prohibited Content</a>
+            <a href="#enforcement">Enforcement</a>
+            <a href="#reporting">Reporting & Appeals</a>
+            <a href="#updates">Updates</a>
+        </div>
 
-    <section id="prohibited">
-      <h2>Prohibited Content &amp; Behavior</h2>
-      <p>The following are not allowed. Violations may result in content removal, suspension, or account termination.</p>
-      <ul>
-        <li><strong>Harassment &amp; Hate:</strong> Threats, slurs, or content that dehumanizes protected groups.</li>
-        <li><strong>Sexual Content &amp; Nudity:</strong> Explicit sexual acts, non‑consensual imagery, sexual exploitation of minors.</li>
-        <li><strong>Violence &amp; Illegal Activities:</strong> Graphic violence, instructions to commit crimes, promotion of weapons for harm.</li>
-        <li><strong>Self‑Harm:</strong> Content that encourages or depicts self-injury or suicide.</li>
-        <li><strong>Child Safety:</strong> Any sexualized content involving minors or endangering child welfare.</li>
-        <li><strong>Intellectual Property Infringement:</strong> Unauthorized use of copyrighted or trademarked works.</li>
-        <li><strong>Misinformation &amp; Fraud:</strong> Content that deliberately deceives, scams, or spreads false information that could cause harm.</li>
-        <li><strong>Spam &amp; Platform Abuse:</strong> Bulk unsolicited content, inauthentic engagement, or manipulation of platform metrics.</li>
-      </ul>
-    </section>
+        <section id="principles">
+            <h2>Our Four Core Principles</h2>
+            <ul>
+                <li><strong>Respect:</strong> Treat everyone with dignity; no bullying or harassment.</li>
+                <li><strong>Safety:</strong> Protect users from harm, threats, or exploitation.</li>
+                <li><strong>Privacy:</strong> Share only content you have the right to share.</li>
+                <li><strong>Authenticity:</strong> No impersonation, manipulated media, or spam.</li>
+            </ul>
+        </section>
 
-    <section id="enforcement">
-      <h2>Enforcement Approach</h2>
-      <p>We use a mix of automated systems and human review to detect violations. Actions we may take include:</p>
-      <ul>
-        <li>Warning notices</li>
-        <li>Content removal</li>
-        <li>Feature restrictions (e.g., posting limits)</li>
-        <li>Temporary suspension</li>
-        <li>Permanent account termination</li>
-      </ul>
-      <p>Severity, context, and user history influence enforcement.</p>
-    </section>
+        <section id="prohibited">
+            <h2>Prohibited Content & Behavior</h2>
+            <p>The following are not allowed. Violations may result in content removal, suspension, or account termination.</p>
+            <ul>
+                <li><strong>Harassment & Hate:</strong> Threats, slurs, or content that dehumanizes protected groups.</li>
+                <li><strong>Sexual Content & Nudity:</strong> Explicit sexual acts, non consensual imagery, sexual exploitation of minors.</li>
+                <li><strong>Violence & Illegal Activities:</strong> Graphic violence, instructions to commit crimes, promotion of weapons for harm.</li>
+                <li><strong>Self Harm:</strong> Content that encourages or depicts self injury or suicide.</li>
+                <li><strong>Child Safety:</strong> Any sexualized content involving minors or endangering child welfare.</li>
+                <li><strong>Intellectual Property Infringement:</strong> Unauthorized use of copyrighted or trademarked works.</li>
+                <li><strong>Misinformation & Fraud:</strong> Content that deliberately deceives, scams, or spreads false information that could cause harm.</li>
+                <li><strong>Spam & Platform Abuse:</strong> Bulk unsolicited content, inauthentic engagement, or manipulation of platform metrics.</li>
+            </ul>
+        </section>
 
-    <section id="reporting">
-      <h2>Reporting &amp; Appeals</h2>
-      <p>If you see content that violates these guidelines, please:</p>
-      <ol>
-        <li>Tap the <em>• • •</em> menu next to the post.</li>
-        <li>Select <strong>Report</strong> and choose the reason.</li>
-      </ol>
-      <p>We review most reports within 24 hours. If you believe your content was removed in error, you can appeal via <a href="mailto:support@silversightllc.com">support@silversightllc.com</a>.</p>
-    </section>
+        <section id="enforcement">
+            <h2>Enforcement Approach</h2>
+            <p>We use a mix of automated systems and human review to detect violations. Actions we may take include:</p>
+            <ul class="enforcement-list">
+                <li>Warning notices</li>
+                <li>Content removal</li>
+                <li>Feature restrictions (e.g., posting limits)</li>
+                <li>Temporary suspension</li>
+                <li>Permanent account termination</li>
+            </ul>
+            <p>Severity, context, and user history influence enforcement decisions.</p>
+        </section>
 
-    <section id="updates">
-      <h2>Guideline Updates</h2>
-      <p>These guidelines may evolve as our community grows. We will notify users in‑app of significant changes and update the “Effective Date” below.</p>
-    </section>
-  </main>
+        <section id="reporting">
+            <h2>Reporting & Appeals</h2>
+            <p>If you see content that violates these guidelines, please:</p>
+            <ol>
+                <li>Tap the <strong>•••</strong> menu next to the post.</li>
+                <li>Select <strong>Report</strong> and choose the reason.</li>
+            </ol>
+            <p>We review most reports within 24 hours. If you believe your content was removed in error, you can appeal via <a href="mailto:support@silversightllc.com">support@silversightllc.com</a>.</p>
+        </section>
 
-  <footer>
-    <p>Effective Date: <time datetime="2025-07-07">July&nbsp;7,&nbsp;2025</time></p>
-    <p>© RivalMe Inc. All rights reserved.</p>
-  </footer>
+        <section id="updates">
+            <h2>Guideline Updates</h2>
+            <p>These guidelines may evolve as our community grows. We will notify users in the app of significant changes and update the "Effective Date" below.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>Effective Date: July 7, 2025</p>
+                <p>&copy; 2025 Silversight LLC. All rights reserved.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="../privacyPolicy/index.html">Privacy Policy</a></li>
+                <li><a href="../termsAndConditions/index.html">Terms & Conditions</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
