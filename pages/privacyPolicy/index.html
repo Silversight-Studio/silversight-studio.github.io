@@ -1,118 +1,373 @@
-<!--
-    Standalone Privacy Policy page for Silversight
--->
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Silversight - Privacy Policy</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #e5e7eb; }
-    .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
-    .privacy-policy-content h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; color: #38bdf8; }
-    .privacy-policy-content h2 { font-size: 1.75rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 1rem; color: #e5e7eb; }
-    .privacy-policy-content p, .privacy-policy-content ul { margin-bottom: 1rem; line-height: 1.6; }
-    .privacy-policy-content ul { list-style-type: disc; padding-left: 1.5rem; }
-    .privacy-policy-content a { color: #38bdf8; text-decoration: underline; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Silversight LLC</title>
+    <meta name="description" content="Privacy Policy for RivalMe, a product of Silversight LLC.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #050508;
+            --color-bg-elevated: #0f0f14;
+            --color-border: rgba(99, 102, 241, 0.2);
+            --color-text: #f0f0f5;
+            --color-text-muted: #9d9db0;
+            --color-accent: #a78bfa;
+            --font-sans: 'DM Sans', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(5, 5, 8, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        nav {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+        }
+
+        main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+            position: relative;
+        }
+
+        main::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at top left, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .page-header {
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--color-text), #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .effective-date {
+            font-size: 0.9375rem;
+            color: var(--color-text-muted);
+        }
+
+        .intro {
+            font-size: 1.0625rem;
+            color: var(--color-text-muted);
+            margin-bottom: 48px;
+            padding: 24px;
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+        }
+
+        h2 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, #6366f1, #a78bfa);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        p {
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+        }
+
+        ul {
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li::marker {
+            color: var(--color-accent);
+        }
+
+        strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-box {
+            margin-top: 32px;
+            padding: 24px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+        }
+
+        .contact-box p {
+            margin-bottom: 8px;
+        }
+
+        .contact-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+    </style>
 </head>
-<body class="antialiased">
-  <section id="privacy-policy" class="py-20 md:py-32 bg-black">
-            <div class="container mx-auto px-6 privacy-policy-content">
-                <h2 class="section-title text-center mb-12">Privacy Policy</h2>
-                <p><strong>Effective Date: June 9, 2025</strong></p>
-                <p>This Privacy Policy describes how Silversight, LLC ("we," "us," or "our") collects, uses, and discloses information in connection with your use of the Silversight mobile application (the “App”).</p>
-                
-                <h3>Our Commitment to Your Privacy</h3>
-                <p>Your privacy is critically important to us. We are committed to handling your personal information responsibly and transparently. We collect only the data necessary to deliver and improve the services provided by the App. We do not sell, rent, or trade your personal information to third parties for marketing or commercial gain.</p>
-                
-                <h3>1. Information We Collect</h3>
-                <p>We collect information in the following ways:</p>
-                <h4>Information You Provide Directly</h4>
-                <ul>
-                    <li><strong>Account Information:</strong> When you create an account, we may collect information such as your name, email address, username, and profile picture.</li>
-                    <li><strong>Content You Submit:</strong> We collect the content you create, upload, or share within the App, such as posts, photos, videos, captions, and messages, as part of the App's core functionality.</li>
-                    <li><strong>Communications:</strong> If you contact us, we may collect your name, email address, and any message or feedback you provide.</li>
-                </ul>
-                <h4>Information Collected Automatically</h4>
-                <ul>
-                    <li><strong>Device Information:</strong> We may collect device type, operating system version, unique device identifiers, and crash logs to maintain app stability and ensure compatibility.</li>
-                    <li><strong>Usage Data:</strong> We collect aggregated and anonymized data on how users interact with the App (e.g., screens visited, time spent). This data is not personally identifiable.</li>
-                </ul>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">Silversight LLC</a>
+            <a href="../../index.html" class="back-link">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+    </header>
 
-                <h3>2. How We Use Your Information</h3>
-                <p>We use your information to:</p>
-                <ul>
-                    <li><strong>Provide Core Services:</strong> Operate, maintain, and authenticate your use of the App.</li>
-                    <li><strong>Improve the App:</strong> Identify usage patterns and fix bugs or inefficiencies based on aggregated, anonymized data.</li>
-                    <li><strong>Communicate with You:</strong> Respond to support inquiries, send critical updates (e.g., outages, security issues), and notify you of major feature changes.</li>
-                    <li><strong>Ensure Integrity & Security:</strong> Detect fraud, enforce policies, and protect our systems and users.</li>
-                </ul>
+    <main>
+        <div class="page-header">
+            <h1>Privacy Policy</h1>
+            <p class="effective-date">Effective Date: June 9, 2025</p>
+        </div>
 
-                <h3>3. Legal Basis for Processing (If Applicable)</h3>
-                <p>For users in jurisdictions with data protection laws (e.g., GDPR in the EU), we process your information based on:</p>
-                <ul>
-                    <li>Your consent (e.g., when you sign up or submit content)</li>
-                    <li>Performance of a contract (providing access to the App)</li>
-                    <li>Our legitimate interests (e.g., fraud prevention, product improvement)</li>
-                    <li>Compliance with legal obligations (e.g., where data must be disclosed by law)</li>
-                </ul>
+        <p class="intro">This Privacy Policy describes how Silversight, LLC ("we," "us," or "our") collects, uses, and discloses information in connection with your use of the RivalMe mobile application (the "App").</p>
 
-                <h3>4. How We Share Your Information</h3>
-                <p>We do not sell your personal data. We only share it in the following cases:</p>
-                <ul>
-                    <li><strong>With Your Consent:</strong> When you authorize us to do so.</li>
-                    <li><strong>Service Providers:</strong> With trusted partners (e.g., cloud hosting, analytics) under strict confidentiality agreements and only to the extent necessary to support the App.</li>
-                    <li><strong>Legal Compliance:</strong> If required by law or in good faith to comply with legal processes, defend rights, or protect safety.</li>
-                    <li><strong>Aggregated or Anonymized Data:</strong> Shared for analytics or research purposes, this data does not personally identify you.</li>
-                </ul>
+        <h2>Our Commitment to Your Privacy</h2>
+        <p>Your privacy is critically important to us. We are committed to handling your personal information responsibly and transparently. We collect only the data necessary to deliver and improve the services provided by the App. We do not sell, rent, or trade your personal information to third parties for marketing or commercial gain.</p>
 
-                <h3>5. Data Retention</h3>
-                <p>We retain personal information only as long as needed for legitimate business purposes and to comply with legal obligations.</p>
-                <p>When data is no longer required, we will:</p>
-                <ul>
-                    <li>Delete it securely, or</li>
-                    <li>Anonymize it so it can no longer be linked to you.</li>
-                </ul>
-                <p>You may request account deletion via the App. Some minimal data may be retained as required by law (e.g., transaction or audit logs).</p>
+        <h2>1. Information We Collect</h2>
+        <p>We collect information in the following ways:</p>
 
-                <h3>6. Your Choices & Rights</h3>
-                <p>You have the following rights regarding your personal information:</p>
-                <ul>
-                    <li><strong>Access & Correction:</strong> You may view or edit certain personal data through your account settings.</li>
-                    <li><strong>Account Deletion:</strong> You may request deletion of your account and data within the App. We will confirm once processed.</li>
-                    <li><strong>Push Notifications:</strong> You can opt out via your device’s settings.</li>
-                    <li><strong>Withdraw Consent:</strong> Where applicable, you may withdraw previously given consent.</li>
-                    <li><strong>Complain to a Data Protection Authority:</strong> If you're subject to GDPR or similar laws and believe your rights have been violated.</li>
-                </ul>
+        <h3>Information You Provide Directly</h3>
+        <ul>
+            <li><strong>Account Information:</strong> When you create an account, we may collect information such as your name, email address, username, and profile picture.</li>
+            <li><strong>Content You Submit:</strong> We collect the content you create, upload, or share within the App, such as posts, photos, videos, captions, and messages, as part of the App's core functionality.</li>
+            <li><strong>Communications:</strong> If you contact us, we may collect your name, email address, and any message or feedback you provide.</li>
+        </ul>
 
-                <h3>7. Security of Your Information</h3>
-                <p>We implement technical and administrative safeguards to protect your information. These include encrypted data transfers, access controls, and secure server storage.</p>
-                <p>However, no method of digital transmission or storage is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.</p>
+        <h3>Information Collected Automatically</h3>
+        <ul>
+            <li><strong>Device Information:</strong> We may collect device type, operating system version, unique device identifiers, and crash logs to maintain app stability and ensure compatibility.</li>
+            <li><strong>Usage Data:</strong> We collect aggregated and anonymized data on how users interact with the App (e.g., screens visited, time spent). This data is not personally identifiable.</li>
+        </ul>
 
-                <h3>8. Children’s Privacy</h3>
-                <p>The App is not intended for children under the age of 13 (or under 16 where required by law). We do not knowingly collect personal data from children.</p>
-                <p>If we become aware of having collected personal information from a child without verified parental consent, we will delete it promptly. Parents or guardians may contact us to review or delete such information.</p>
+        <h2>2. How We Use Your Information</h2>
+        <p>We use your information to:</p>
+        <ul>
+            <li><strong>Provide Core Services:</strong> Operate, maintain, and authenticate your use of the App.</li>
+            <li><strong>Improve the App:</strong> Identify usage patterns and fix bugs or inefficiencies based on aggregated, anonymized data.</li>
+            <li><strong>Communicate with You:</strong> Respond to support inquiries, send critical updates (e.g., outages, security issues), and notify you of major feature changes.</li>
+            <li><strong>Ensure Integrity & Security:</strong> Detect fraud, enforce policies, and protect our systems and users.</li>
+        </ul>
 
-                <h3>9. Changes to This Privacy Policy</h3>
-                <p>We may revise this Privacy Policy from time to time. When we do:</p>
-                <ul>
-                    <li>We’ll update the Effective Date above.</li>
-                    <li>If changes are significant, we may notify you through the App or by email.</li>
-                </ul>
-                <p>Your continued use of the App after changes are posted means you accept those changes.</p>
+        <h2>3. Legal Basis for Processing (If Applicable)</h2>
+        <p>For users in jurisdictions with data protection laws (e.g., GDPR in the EU), we process your information based on:</p>
+        <ul>
+            <li>Your consent (e.g., when you sign up or submit content)</li>
+            <li>Performance of a contract (providing access to the App)</li>
+            <li>Our legitimate interests (e.g., fraud prevention, product improvement)</li>
+            <li>Compliance with legal obligations (e.g., where data must be disclosed by law)</li>
+        </ul>
 
-                <h3>10. Contact Us</h3>
-                <p>If you have any questions about this Privacy Policy or how we handle your data, please contact us:</p>
-                <p>📧 <a href="mailto:support@silversightllc.com">support@silversightllc.com</a></p>
-                <p>🌐 <a href="https://www.silversightllc.com" target="_blank">www.silversightllc.com</a></p>
-            </div>
-        </section>
+        <h2>4. How We Share Your Information</h2>
+        <p>We do not sell your personal data. We only share it in the following cases:</p>
+        <ul>
+            <li><strong>With Your Consent:</strong> When you authorize us to do so.</li>
+            <li><strong>Service Providers:</strong> With trusted partners (e.g., cloud hosting, analytics) under strict confidentiality agreements and only to the extent necessary to support the App.</li>
+            <li><strong>Legal Compliance:</strong> If required by law or in good faith to comply with legal processes, defend rights, or protect safety.</li>
+            <li><strong>Aggregated or Anonymized Data:</strong> Shared for analytics or research purposes, this data does not personally identify you.</li>
+        </ul>
 
+        <h2>5. Data Retention</h2>
+        <p>We retain personal information only as long as needed for legitimate business purposes and to comply with legal obligations.</p>
+        <p>When data is no longer required, we will:</p>
+        <ul>
+            <li>Delete it securely, or</li>
+            <li>Anonymize it so it can no longer be linked to you.</li>
+        </ul>
+        <p>You may request account deletion via the App. Some minimal data may be retained as required by law (e.g., transaction or audit logs).</p>
+
+        <h2>6. Your Choices & Rights</h2>
+        <p>You have the following rights regarding your personal information:</p>
+        <ul>
+            <li><strong>Access & Correction:</strong> You may view or edit certain personal data through your account settings.</li>
+            <li><strong>Account Deletion:</strong> You may request deletion of your account and data within the App. We will confirm once processed.</li>
+            <li><strong>Push Notifications:</strong> You can opt out via your device's settings.</li>
+            <li><strong>Withdraw Consent:</strong> Where applicable, you may withdraw previously given consent.</li>
+            <li><strong>Complain to a Data Protection Authority:</strong> If you're subject to GDPR or similar laws and believe your rights have been violated.</li>
+        </ul>
+
+        <h2>7. Security of Your Information</h2>
+        <p>We implement technical and administrative safeguards to protect your information. These include encrypted data transfers, access controls, and secure server storage.</p>
+        <p>However, no method of digital transmission or storage is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.</p>
+
+        <h2>8. Children's Privacy</h2>
+        <p>The App is not intended for children under the age of 13 (or under 16 where required by law). We do not knowingly collect personal data from children.</p>
+        <p>If we become aware of having collected personal information from a child without verified parental consent, we will delete it promptly. Parents or guardians may contact us to review or delete such information.</p>
+
+        <h2>9. Changes to This Privacy Policy</h2>
+        <p>We may revise this Privacy Policy from time to time. When we do:</p>
+        <ul>
+            <li>We'll update the Effective Date above.</li>
+            <li>If changes are significant, we may notify you through the App or by email.</li>
+        </ul>
+        <p>Your continued use of the App after changes are posted means you accept those changes.</p>
+
+        <h2>10. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy or how we handle your data, please contact us:</p>
+        <div class="contact-box">
+            <p><strong>Email:</strong> <a href="mailto:support@silversightllc.com">support@silversightllc.com</a></p>
+            <p><strong>Website:</strong> <a href="https://www.silversightllc.com" target="_blank">www.silversightllc.com</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-copyright">&copy; 2025 Silversight LLC. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="../termsAndConditions/index.html">Terms & Conditions</a></li>
+                <li><a href="../communityGuidelines/community_guidelines.html">Community Guidelines</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
