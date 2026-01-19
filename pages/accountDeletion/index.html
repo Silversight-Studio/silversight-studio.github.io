@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion | RivalMe</title>
+    <meta name="description" content="Request account deletion for RivalMe, a product of Silversight LLC.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #050508;
+            --color-bg-elevated: #0f0f14;
+            --color-border: rgba(99, 102, 241, 0.2);
+            --color-text: #f0f0f5;
+            --color-text-muted: #9d9db0;
+            --color-accent: #a78bfa;
+            --font-sans: 'DM Sans', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.75;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(5, 5, 8, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        nav {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+        }
+
+        main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+            position: relative;
+        }
+
+        main::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100%;
+            background: radial-gradient(at left top, rgba(99, 102, 241, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header {
+            margin-bottom: 48px;
+        }
+
+        .effective-date {
+            font-size: 0.9375rem;
+            color: var(--color-text-muted);
+        }
+
+        .intro {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            margin-bottom: 48px;
+            padding: 24px;
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 56px;
+            margin-bottom: 24px;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 28px;
+            background: linear-gradient(#6366f1, #a78bfa);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        p {
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+        }
+
+        ul {
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li::marker {
+            color: var(--color-accent);
+        }
+
+        strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-box {
+            margin-top: 24px;
+            padding: 24px;
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+        }
+
+        .contact-box p {
+            margin-bottom: 8px;
+        }
+
+        .contact-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .steps-box {
+            margin: 24px 0;
+            padding: 24px;
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+        }
+
+        .steps-box ol {
+            color: var(--color-text-muted);
+            padding-left: 24px;
+            margin: 0;
+        }
+
+        .steps-box li {
+            margin-bottom: 12px;
+        }
+
+        .steps-box li:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning-box {
+            margin: 24px 0;
+            padding: 24px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+        }
+
+        .warning-box p {
+            margin-bottom: 0;
+        }
+
+        footer {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">Silversight LLC</a>
+            <a href="../../index.html" class="back-link">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1>Account Deletion</h1>
+            <p class="effective-date">How to delete your RivalMe account</p>
+        </div>
+
+        <p class="intro">You can request deletion of your RivalMe account and associated data at any time. This page explains the available methods and what happens when your account is deleted.</p>
+
+        <h2>Delete Your Account In-App</h2>
+        <p>The fastest way to delete your account is directly within the RivalMe app:</p>
+        
+        <div class="steps-box">
+            <ol>
+                <li>Open the <strong>RivalMe</strong> app</li>
+                <li>Go to your <strong>Profile</strong> tab</li>
+                <li>Tap <strong>Settings</strong> (gear icon)</li>
+                <li>Scroll down and tap <strong>Delete Account</strong></li>
+                <li>Follow the confirmation prompts</li>
+            </ol>
+        </div>
+
+        <p>Your account will be deleted immediately upon confirmation.</p>
+
+        <h2>Request Deletion via Email</h2>
+        <p>If you cannot access the app (e.g., you no longer have the device or cannot log in), you can request account deletion by email:</p>
+        
+        <div class="contact-box">
+            <p><strong>Email:</strong> <a href="mailto:support@silversightllc.com?subject=Account%20Deletion%20Request">support@silversightllc.com</a></p>
+            <p><strong>Subject:</strong> Account Deletion Request</p>
+            <p><strong>Include:</strong> The email address associated with your RivalMe account</p>
+        </div>
+
+        <p>Email requests are typically processed within <strong>30 days</strong>. We may contact you to verify your identity before processing the deletion.</p>
+
+        <h2>What Gets Deleted</h2>
+        <p>When your account is deleted, the following data is permanently removed:</p>
+        <ul>
+            <li>Your profile information (username, bio, profile photo)</li>
+            <li>All posts, photos, and videos you uploaded</li>
+            <li>All comments and likes you made</li>
+            <li>Your contest participation history</li>
+            <li>Earnings history and wallet balance</li>
+            <li>Notification preferences and settings</li>
+        </ul>
+
+        <div class="warning-box">
+            <p><strong>Warning:</strong> Account deletion is <strong>permanent and cannot be undone</strong>. If you have unreleased earnings in your wallet, those will be forfeited. Please withdraw any available balance before deleting your account.</p>
+        </div>
+
+        <h2>Data Retention</h2>
+        <p>Some minimal data may be retained after account deletion as required by law or for legitimate business purposes, such as:</p>
+        <ul>
+            <li>Transaction records for tax and legal compliance</li>
+            <li>Records necessary to resolve disputes or enforce our terms</li>
+            <li>Anonymized, aggregated data that cannot identify you</li>
+        </ul>
+        <p>For more information about how we handle your data, please review our <a href="../privacyPolicy/index.html">Privacy Policy</a>.</p>
+
+        <h2>Questions?</h2>
+        <p>If you have any questions about account deletion or your data, please contact us:</p>
+        <div class="contact-box">
+            <p><strong>Email:</strong> <a href="mailto:support@silversightllc.com">support@silversightllc.com</a></p>
+            <p><strong>Website:</strong> <a href="https://www.silversightllc.com" target="_blank">www.silversightllc.com</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-copyright">© 2025 Silversight LLC. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="../privacyPolicy/index.html">Privacy Policy</a></li>
+                <li><a href="../termsAndConditions/index.html">Terms and Conditions</a></li>
+                <li><a href="../communityGuidelines/community_guidelines.html">Community Guidelines</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
